@@ -1,0 +1,570 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - out.info - /usr/include/qt/QtCore/qstringbuilder.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">usr/include/qt/QtCore</a> - qstringbuilder.h<span style="font-size: 80%;"> (source / <a href="qstringbuilder.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">out.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">38</td>
+            <td class="headerCovTableEntry">38</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2021-04-30 05:03:05</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntryLo">40.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /****************************************************************************</a>
+<a name="2"><span class="lineNum">       2 </span>            : **</a>
+<a name="3"><span class="lineNum">       3 </span>            : ** Copyright (C) 2016 The Qt Company Ltd.</a>
+<a name="4"><span class="lineNum">       4 </span>            : ** Contact: https://www.qt.io/licensing/</a>
+<a name="5"><span class="lineNum">       5 </span>            : **</a>
+<a name="6"><span class="lineNum">       6 </span>            : ** This file is part of the QtCore module of the Qt Toolkit.</a>
+<a name="7"><span class="lineNum">       7 </span>            : **</a>
+<a name="8"><span class="lineNum">       8 </span>            : ** $QT_BEGIN_LICENSE:LGPL$</a>
+<a name="9"><span class="lineNum">       9 </span>            : ** Commercial License Usage</a>
+<a name="10"><span class="lineNum">      10 </span>            : ** Licensees holding valid commercial Qt licenses may use this file in</a>
+<a name="11"><span class="lineNum">      11 </span>            : ** accordance with the commercial license agreement provided with the</a>
+<a name="12"><span class="lineNum">      12 </span>            : ** Software or, alternatively, in accordance with the terms contained in</a>
+<a name="13"><span class="lineNum">      13 </span>            : ** a written agreement between you and The Qt Company. For licensing terms</a>
+<a name="14"><span class="lineNum">      14 </span>            : ** and conditions see https://www.qt.io/terms-conditions. For further</a>
+<a name="15"><span class="lineNum">      15 </span>            : ** information use the contact form at https://www.qt.io/contact-us.</a>
+<a name="16"><span class="lineNum">      16 </span>            : **</a>
+<a name="17"><span class="lineNum">      17 </span>            : ** GNU Lesser General Public License Usage</a>
+<a name="18"><span class="lineNum">      18 </span>            : ** Alternatively, this file may be used under the terms of the GNU Lesser</a>
+<a name="19"><span class="lineNum">      19 </span>            : ** General Public License version 3 as published by the Free Software</a>
+<a name="20"><span class="lineNum">      20 </span>            : ** Foundation and appearing in the file LICENSE.LGPL3 included in the</a>
+<a name="21"><span class="lineNum">      21 </span>            : ** packaging of this file. Please review the following information to</a>
+<a name="22"><span class="lineNum">      22 </span>            : ** ensure the GNU Lesser General Public License version 3 requirements</a>
+<a name="23"><span class="lineNum">      23 </span>            : ** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.</a>
+<a name="24"><span class="lineNum">      24 </span>            : **</a>
+<a name="25"><span class="lineNum">      25 </span>            : ** GNU General Public License Usage</a>
+<a name="26"><span class="lineNum">      26 </span>            : ** Alternatively, this file may be used under the terms of the GNU</a>
+<a name="27"><span class="lineNum">      27 </span>            : ** General Public License version 2.0 or (at your option) the GNU General</a>
+<a name="28"><span class="lineNum">      28 </span>            : ** Public license version 3 or any later version approved by the KDE Free</a>
+<a name="29"><span class="lineNum">      29 </span>            : ** Qt Foundation. The licenses are as published by the Free Software</a>
+<a name="30"><span class="lineNum">      30 </span>            : ** Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3</a>
+<a name="31"><span class="lineNum">      31 </span>            : ** included in the packaging of this file. Please review the following</a>
+<a name="32"><span class="lineNum">      32 </span>            : ** information to ensure the GNU General Public License requirements will</a>
+<a name="33"><span class="lineNum">      33 </span>            : ** be met: https://www.gnu.org/licenses/gpl-2.0.html and</a>
+<a name="34"><span class="lineNum">      34 </span>            : ** https://www.gnu.org/licenses/gpl-3.0.html.</a>
+<a name="35"><span class="lineNum">      35 </span>            : **</a>
+<a name="36"><span class="lineNum">      36 </span>            : ** $QT_END_LICENSE$</a>
+<a name="37"><span class="lineNum">      37 </span>            : **</a>
+<a name="38"><span class="lineNum">      38 </span>            : ****************************************************************************/</a>
+<a name="39"><span class="lineNum">      39 </span>            : </a>
+<a name="40"><span class="lineNum">      40 </span>            : #ifndef QSTRINGBUILDER_H</a>
+<a name="41"><span class="lineNum">      41 </span>            : #define QSTRINGBUILDER_H</a>
+<a name="42"><span class="lineNum">      42 </span>            : </a>
+<a name="43"><span class="lineNum">      43 </span>            : #if 0</a>
+<a name="44"><span class="lineNum">      44 </span>            : // syncqt can not handle the templates in this file, and it doesn't need to</a>
+<a name="45"><span class="lineNum">      45 </span>            : // process them anyway because they are internal.</a>
+<a name="46"><span class="lineNum">      46 </span>            : #pragma qt_class(QStringBuilder)</a>
+<a name="47"><span class="lineNum">      47 </span>            : #pragma qt_sync_stop_processing</a>
+<a name="48"><span class="lineNum">      48 </span>            : #endif</a>
+<a name="49"><span class="lineNum">      49 </span>            : </a>
+<a name="50"><span class="lineNum">      50 </span>            : #include &lt;QtCore/qstring.h&gt;</a>
+<a name="51"><span class="lineNum">      51 </span>            : #include &lt;QtCore/qbytearray.h&gt;</a>
+<a name="52"><span class="lineNum">      52 </span>            : </a>
+<a name="53"><span class="lineNum">      53 </span>            : #include &lt;string.h&gt;</a>
+<a name="54"><span class="lineNum">      54 </span>            : </a>
+<a name="55"><span class="lineNum">      55 </span>            : QT_BEGIN_NAMESPACE</a>
+<a name="56"><span class="lineNum">      56 </span>            : </a>
+<a name="57"><span class="lineNum">      57 </span>            : </a>
+<a name="58"><span class="lineNum">      58 </span>            : struct Q_CORE_EXPORT QAbstractConcatenable</a>
+<a name="59"><span class="lineNum">      59 </span>            : {</a>
+<a name="60"><span class="lineNum">      60 </span>            : protected:</a>
+<a name="61"><span class="lineNum">      61 </span>            :     static void convertFromAscii(const char *a, int len, QChar *&amp;out) noexcept;</a>
+<a name="62"><span class="lineNum">      62 </span>            :     static inline void convertFromAscii(char a, QChar *&amp;out) noexcept</a>
+<a name="63"><span class="lineNum">      63 </span>            :     {</a>
+<a name="64"><span class="lineNum">      64 </span>            :         *out++ = QLatin1Char(a);</a>
+<a name="65"><span class="lineNum">      65 </span>            :     }</a>
+<a name="66"><span class="lineNum">      66 </span>            :     static void appendLatin1To(const char *a, int len, QChar *out) noexcept;</a>
+<a name="67"><span class="lineNum">      67 </span>            : };</a>
+<a name="68"><span class="lineNum">      68 </span>            : </a>
+<a name="69"><span class="lineNum">      69 </span>            : template &lt;typename T&gt; struct QConcatenable {};</a>
+<a name="70"><span class="lineNum">      70 </span>            : </a>
+<a name="71"><span class="lineNum">      71 </span>            : namespace QtStringBuilder {</a>
+<a name="72"><span class="lineNum">      72 </span>            :     template &lt;typename A, typename B&gt; struct ConvertToTypeHelper</a>
+<a name="73"><span class="lineNum">      73 </span>            :     { typedef A ConvertTo; };</a>
+<a name="74"><span class="lineNum">      74 </span>            :     template &lt;typename T&gt; struct ConvertToTypeHelper&lt;T, QString&gt;</a>
+<a name="75"><span class="lineNum">      75 </span>            :     { typedef QString ConvertTo; };</a>
+<a name="76"><span class="lineNum">      76 </span>            : }</a>
+<a name="77"><span class="lineNum">      77 </span>            : </a>
+<a name="78"><span class="lineNum">      78 </span>            : template&lt;typename Builder, typename T&gt;</a>
+<a name="79"><span class="lineNum">      79 </span>            : struct QStringBuilderCommon</a>
+<a name="80"><span class="lineNum">      80 </span>            : {</a>
+<a name="81"><span class="lineNum">      81 </span>            :     T toUpper() const { return resolved().toUpper(); }</a>
+<a name="82"><span class="lineNum">      82 </span>            :     T toLower() const { return resolved().toLower(); }</a>
+<a name="83"><span class="lineNum">      83 </span>            : </a>
+<a name="84"><span class="lineNum">      84 </span>            : protected:</a>
+<a name="85"><span class="lineNum">      85 </span>            :     T resolved() const { return *static_cast&lt;const Builder*&gt;(this); }</a>
+<a name="86"><span class="lineNum">      86 </span>            : };</a>
+<a name="87"><span class="lineNum">      87 </span>            : </a>
+<a name="88"><span class="lineNum">      88 </span>            : template&lt;typename Builder, typename T&gt;</a>
+<a name="89"><span class="lineNum">      89 </span>            : struct QStringBuilderBase : public QStringBuilderCommon&lt;Builder, T&gt;</a>
+<a name="90"><span class="lineNum">      90 </span>            : {</a>
+<a name="91"><span class="lineNum">      91 </span>            : };</a>
+<a name="92"><span class="lineNum">      92 </span>            : </a>
+<a name="93"><span class="lineNum">      93 </span>            : template&lt;typename Builder&gt;</a>
+<a name="94"><span class="lineNum">      94 </span>            : struct QStringBuilderBase&lt;Builder, QString&gt; : public QStringBuilderCommon&lt;Builder, QString&gt;</a>
+<a name="95"><span class="lineNum">      95 </span>            : {</a>
+<a name="96"><span class="lineNum">      96 </span>            :     QByteArray toLatin1() const { return this-&gt;resolved().toLatin1(); }</a>
+<a name="97"><span class="lineNum">      97 </span>            :     QByteArray toUtf8() const { return this-&gt;resolved().toUtf8(); }</a>
+<a name="98"><span class="lineNum">      98 </span>            :     QByteArray toLocal8Bit() const { return this-&gt;resolved().toLocal8Bit(); }</a>
+<a name="99"><span class="lineNum">      99 </span>            : };</a>
+<a name="100"><span class="lineNum">     100 </span>            : </a>
+<a name="101"><span class="lineNum">     101 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="102"><span class="lineNum">     102 </span>            : class QStringBuilder : public QStringBuilderBase&lt;QStringBuilder&lt;A, B&gt;, typename QtStringBuilder::ConvertToTypeHelper&lt;typename QConcatenable&lt;A&gt;::ConvertTo, typename QConcatenable&lt;B&gt;::ConvertTo&gt;::ConvertTo&gt;</a>
+<a name="103"><span class="lineNum">     103 </span>            : {</a>
+<a name="104"><span class="lineNum">     104 </span>            : public:</a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">          6 :     QStringBuilder(const A &amp;a_, const B &amp;b_) : a(a_), b(b_) {}</span></a>
+<a name="106"><span class="lineNum">     106 </span>            : private:</a>
+<a name="107"><span class="lineNum">     107 </span>            :     friend class QByteArray;</a>
+<a name="108"><span class="lineNum">     108 </span>            :     friend class QString;</a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">          6 :     template &lt;typename T&gt; T convertTo() const</span></a>
+<a name="110"><span class="lineNum">     110 </span>            :     {</a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          6 :         const uint len = QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::size(*this);</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          6 :         T s(len, Qt::Uninitialized);</span></a>
+<a name="113"><span class="lineNum">     113 </span>            : </a>
+<a name="114"><span class="lineNum">     114 </span>            :         // we abuse const_cast / constData here because we know we've just</a>
+<a name="115"><span class="lineNum">     115 </span>            :         // allocated the data and we're the only reference count</a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">          6 :         typename T::iterator d = const_cast&lt;typename T::iterator&gt;(s.constData());</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">          6 :         typename T::const_iterator const start = d;</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">          6 :         QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::appendTo(*this, d);</span></a>
+<a name="119"><span class="lineNum">     119 </span>            : </a>
+<a name="120"><span class="lineNum">     120 </span>            :         if (!QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::ExactSize &amp;&amp; int(len) != d - start) {</a>
+<a name="121"><span class="lineNum">     121 </span>            :             // this resize is necessary since we allocate a bit too much</a>
+<a name="122"><span class="lineNum">     122 </span>            :             // when dealing with variable sized 8-bit encodings</a>
+<a name="123"><span class="lineNum">     123 </span>            :             s.resize(d - start);</a>
+<a name="124"><span class="lineNum">     124 </span>            :         }</a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">          6 :         return s;</span></a>
+<a name="126"><span class="lineNum">     126 </span>            :     }</a>
+<a name="127"><span class="lineNum">     127 </span>            : </a>
+<a name="128"><span class="lineNum">     128 </span>            :     typedef QConcatenable&lt;QStringBuilder&lt;A, B&gt; &gt; Concatenable;</a>
+<a name="129"><span class="lineNum">     129 </span>            : public:</a>
+<a name="130"><span class="lineNum">     130 </span>            :     typedef typename Concatenable::ConvertTo ConvertTo;</a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">          6 :     operator ConvertTo() const { return convertTo&lt;ConvertTo&gt;(); }</span></a>
+<a name="132"><span class="lineNum">     132 </span>            : </a>
+<a name="133"><span class="lineNum">     133 </span>            :     int size() const { return Concatenable::size(*this); }</a>
+<a name="134"><span class="lineNum">     134 </span>            : </a>
+<a name="135"><span class="lineNum">     135 </span>            :     const A &amp;a;</a>
+<a name="136"><span class="lineNum">     136 </span>            :     const B &amp;b;</a>
+<a name="137"><span class="lineNum">     137 </span>            : };</a>
+<a name="138"><span class="lineNum">     138 </span>            : </a>
+<a name="139"><span class="lineNum">     139 </span>            : template &lt;&gt;</a>
+<a name="140"><span class="lineNum">     140 </span>            : class QStringBuilder &lt;QString, QString&gt; : public QStringBuilderBase&lt;QStringBuilder&lt;QString, QString&gt;, QString&gt;</a>
+<a name="141"><span class="lineNum">     141 </span>            : {</a>
+<a name="142"><span class="lineNum">     142 </span>            :     public:</a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">        107 :         QStringBuilder(const QString &amp;a_, const QString &amp;b_) : a(a_), b(b_) {}</span></a>
+<a name="144"><span class="lineNum">     144 </span>            :         QStringBuilder(const QStringBuilder &amp;other) : a(other.a), b(other.b) {}</a>
+<a name="145"><span class="lineNum">     145 </span>            : </a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">         15 :         operator QString() const</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">         15 :         { QString r(a); r += b; return r; }</span></a>
+<a name="148"><span class="lineNum">     148 </span>            : </a>
+<a name="149"><span class="lineNum">     149 </span>            :         const QString &amp;a;</a>
+<a name="150"><span class="lineNum">     150 </span>            :         const QString &amp;b;</a>
+<a name="151"><span class="lineNum">     151 </span>            : </a>
+<a name="152"><span class="lineNum">     152 </span>            :     private:</a>
+<a name="153"><span class="lineNum">     153 </span>            :         QStringBuilder &amp;operator=(const QStringBuilder &amp;) = delete;</a>
+<a name="154"><span class="lineNum">     154 </span>            : };</a>
+<a name="155"><span class="lineNum">     155 </span>            : </a>
+<a name="156"><span class="lineNum">     156 </span>            : template &lt;&gt;</a>
+<a name="157"><span class="lineNum">     157 </span>            : class QStringBuilder &lt;QByteArray, QByteArray&gt; : public QStringBuilderBase&lt;QStringBuilder&lt;QByteArray, QByteArray&gt;, QByteArray&gt;</a>
+<a name="158"><span class="lineNum">     158 </span>            : {</a>
+<a name="159"><span class="lineNum">     159 </span>            :     public:</a>
+<a name="160"><span class="lineNum">     160 </span>            :         QStringBuilder(const QByteArray &amp;a_, const QByteArray &amp;b_) : a(a_), b(b_) {}</a>
+<a name="161"><span class="lineNum">     161 </span>            :         QStringBuilder(const QStringBuilder &amp;other) : a(other.a), b(other.b) {}</a>
+<a name="162"><span class="lineNum">     162 </span>            : </a>
+<a name="163"><span class="lineNum">     163 </span>            :         operator QByteArray() const</a>
+<a name="164"><span class="lineNum">     164 </span>            :         { QByteArray r(a); r += b; return r; }</a>
+<a name="165"><span class="lineNum">     165 </span>            : </a>
+<a name="166"><span class="lineNum">     166 </span>            :         const QByteArray &amp;a;</a>
+<a name="167"><span class="lineNum">     167 </span>            :         const QByteArray &amp;b;</a>
+<a name="168"><span class="lineNum">     168 </span>            : </a>
+<a name="169"><span class="lineNum">     169 </span>            :     private:</a>
+<a name="170"><span class="lineNum">     170 </span>            :         QStringBuilder &amp;operator=(const QStringBuilder &amp;) = delete;</a>
+<a name="171"><span class="lineNum">     171 </span>            : };</a>
+<a name="172"><span class="lineNum">     172 </span>            : </a>
+<a name="173"><span class="lineNum">     173 </span>            : </a>
+<a name="174"><span class="lineNum">     174 </span>            : template &lt;&gt; struct QConcatenable&lt;char&gt; : private QAbstractConcatenable</a>
+<a name="175"><span class="lineNum">     175 </span>            : {</a>
+<a name="176"><span class="lineNum">     176 </span>            :     typedef char type;</a>
+<a name="177"><span class="lineNum">     177 </span>            :     typedef QByteArray ConvertTo;</a>
+<a name="178"><span class="lineNum">     178 </span>            :     enum { ExactSize = true };</a>
+<a name="179"><span class="lineNum">     179 </span>            :     static int size(const char) { return 1; }</a>
+<a name="180"><span class="lineNum">     180 </span>            : #ifndef QT_NO_CAST_FROM_ASCII</a>
+<a name="181"><span class="lineNum">     181 </span>            :     static inline QT_ASCII_CAST_WARN void appendTo(const char c, QChar *&amp;out)</a>
+<a name="182"><span class="lineNum">     182 </span>            :     {</a>
+<a name="183"><span class="lineNum">     183 </span>            :         QAbstractConcatenable::convertFromAscii(c, out);</a>
+<a name="184"><span class="lineNum">     184 </span>            :     }</a>
+<a name="185"><span class="lineNum">     185 </span>            : #endif</a>
+<a name="186"><span class="lineNum">     186 </span>            :     static inline void appendTo(const char c, char *&amp;out)</a>
+<a name="187"><span class="lineNum">     187 </span>            :     { *out++ = c; }</a>
+<a name="188"><span class="lineNum">     188 </span>            : };</a>
+<a name="189"><span class="lineNum">     189 </span>            : </a>
+<a name="190"><span class="lineNum">     190 </span>            : #if defined(Q_COMPILER_UNICODE_STRINGS)</a>
+<a name="191"><span class="lineNum">     191 </span>            : template &lt;&gt; struct QConcatenable&lt;char16_t&gt; : private QAbstractConcatenable</a>
+<a name="192"><span class="lineNum">     192 </span>            : {</a>
+<a name="193"><span class="lineNum">     193 </span>            :     typedef char16_t type;</a>
+<a name="194"><span class="lineNum">     194 </span>            :     typedef QString ConvertTo;</a>
+<a name="195"><span class="lineNum">     195 </span>            :     enum { ExactSize = true };</a>
+<a name="196"><span class="lineNum">     196 </span>            :     static Q_DECL_CONSTEXPR int size(char16_t) { return 1; }</a>
+<a name="197"><span class="lineNum">     197 </span>            :     static inline void appendTo(char16_t c, QChar *&amp;out)</a>
+<a name="198"><span class="lineNum">     198 </span>            :     { *out++ = c; }</a>
+<a name="199"><span class="lineNum">     199 </span>            : };</a>
+<a name="200"><span class="lineNum">     200 </span>            : #endif</a>
+<a name="201"><span class="lineNum">     201 </span>            : </a>
+<a name="202"><span class="lineNum">     202 </span>            : template &lt;&gt; struct QConcatenable&lt;QLatin1Char&gt;</a>
+<a name="203"><span class="lineNum">     203 </span>            : {</a>
+<a name="204"><span class="lineNum">     204 </span>            :     typedef QLatin1Char type;</a>
+<a name="205"><span class="lineNum">     205 </span>            :     typedef QString ConvertTo;</a>
+<a name="206"><span class="lineNum">     206 </span>            :     enum { ExactSize = true };</a>
+<a name="207"><span class="lineNum">     207 </span>            :     static int size(const QLatin1Char) { return 1; }</a>
+<a name="208"><span class="lineNum">     208 </span>            :     static inline void appendTo(const QLatin1Char c, QChar *&amp;out)</a>
+<a name="209"><span class="lineNum">     209 </span>            :     { *out++ = c; }</a>
+<a name="210"><span class="lineNum">     210 </span>            :     static inline void appendTo(const QLatin1Char c, char *&amp;out)</a>
+<a name="211"><span class="lineNum">     211 </span>            :     { *out++ = c.toLatin1(); }</a>
+<a name="212"><span class="lineNum">     212 </span>            : };</a>
+<a name="213"><span class="lineNum">     213 </span>            : </a>
+<a name="214"><span class="lineNum">     214 </span>            : template &lt;&gt; struct QConcatenable&lt;QChar&gt; : private QAbstractConcatenable</a>
+<a name="215"><span class="lineNum">     215 </span>            : {</a>
+<a name="216"><span class="lineNum">     216 </span>            :     typedef QChar type;</a>
+<a name="217"><span class="lineNum">     217 </span>            :     typedef QString ConvertTo;</a>
+<a name="218"><span class="lineNum">     218 </span>            :     enum { ExactSize = true };</a>
+<a name="219"><span class="lineNum">     219 </span>            :     static int size(const QChar) { return 1; }</a>
+<a name="220"><span class="lineNum">     220 </span>            :     static inline void appendTo(const QChar c, QChar *&amp;out)</a>
+<a name="221"><span class="lineNum">     221 </span>            :     { *out++ = c; }</a>
+<a name="222"><span class="lineNum">     222 </span>            : };</a>
+<a name="223"><span class="lineNum">     223 </span>            : </a>
+<a name="224"><span class="lineNum">     224 </span>            : template &lt;&gt; struct QConcatenable&lt;QChar::SpecialCharacter&gt; : private QAbstractConcatenable</a>
+<a name="225"><span class="lineNum">     225 </span>            : {</a>
+<a name="226"><span class="lineNum">     226 </span>            :     typedef QChar::SpecialCharacter type;</a>
+<a name="227"><span class="lineNum">     227 </span>            :     typedef QString ConvertTo;</a>
+<a name="228"><span class="lineNum">     228 </span>            :     enum { ExactSize = true };</a>
+<a name="229"><span class="lineNum">     229 </span>            :     static int size(const QChar::SpecialCharacter) { return 1; }</a>
+<a name="230"><span class="lineNum">     230 </span>            :     static inline void appendTo(const QChar::SpecialCharacter c, QChar *&amp;out)</a>
+<a name="231"><span class="lineNum">     231 </span>            :     { *out++ = c; }</a>
+<a name="232"><span class="lineNum">     232 </span>            : };</a>
+<a name="233"><span class="lineNum">     233 </span>            : </a>
+<a name="234"><span class="lineNum">     234 </span>            : template &lt;&gt; struct QConcatenable&lt;QCharRef&gt; : private QAbstractConcatenable</a>
+<a name="235"><span class="lineNum">     235 </span>            : {</a>
+<a name="236"><span class="lineNum">     236 </span>            :     typedef QCharRef type;</a>
+<a name="237"><span class="lineNum">     237 </span>            :     typedef QString ConvertTo;</a>
+<a name="238"><span class="lineNum">     238 </span>            :     enum { ExactSize = true };</a>
+<a name="239"><span class="lineNum">     239 </span>            :     static int size(QCharRef) { return 1; }</a>
+<a name="240"><span class="lineNum">     240 </span>            :     static inline void appendTo(QCharRef c, QChar *&amp;out)</a>
+<a name="241"><span class="lineNum">     241 </span>            :     { *out++ = QChar(c); }</a>
+<a name="242"><span class="lineNum">     242 </span>            : };</a>
+<a name="243"><span class="lineNum">     243 </span>            : </a>
+<a name="244"><span class="lineNum">     244 </span>            : template &lt;&gt; struct QConcatenable&lt;QLatin1String&gt; : private QAbstractConcatenable</a>
+<a name="245"><span class="lineNum">     245 </span>            : {</a>
+<a name="246"><span class="lineNum">     246 </span>            :     typedef QLatin1String type;</a>
+<a name="247"><span class="lineNum">     247 </span>            :     typedef QString ConvertTo;</a>
+<a name="248"><span class="lineNum">     248 </span>            :     enum { ExactSize = true };</a>
+<a name="249"><span class="lineNum">     249 </span><span class="lineCov">          6 :     static int size(const QLatin1String a) { return a.size(); }</span></a>
+<a name="250"><span class="lineNum">     250 </span><span class="lineCov">          6 :     static inline void appendTo(const QLatin1String a, QChar *&amp;out)</span></a>
+<a name="251"><span class="lineNum">     251 </span>            :     {</a>
+<a name="252"><span class="lineNum">     252 </span><span class="lineCov">          6 :         appendLatin1To(a.latin1(), a.size(), out);</span></a>
+<a name="253"><span class="lineNum">     253 </span><span class="lineCov">          6 :         out += a.size();</span></a>
+<a name="254"><span class="lineNum">     254 </span><span class="lineCov">          6 :     }</span></a>
+<a name="255"><span class="lineNum">     255 </span>            :     static inline void appendTo(const QLatin1String a, char *&amp;out)</a>
+<a name="256"><span class="lineNum">     256 </span>            :     {</a>
+<a name="257"><span class="lineNum">     257 </span>            :         if (const char *data = a.data()) {</a>
+<a name="258"><span class="lineNum">     258 </span>            :             memcpy(out, data, a.size());</a>
+<a name="259"><span class="lineNum">     259 </span>            :             out += a.size();</a>
+<a name="260"><span class="lineNum">     260 </span>            :         }</a>
+<a name="261"><span class="lineNum">     261 </span>            :     }</a>
+<a name="262"><span class="lineNum">     262 </span>            : };</a>
+<a name="263"><span class="lineNum">     263 </span>            : </a>
+<a name="264"><span class="lineNum">     264 </span>            : template &lt;&gt; struct QConcatenable&lt;QString&gt; : private QAbstractConcatenable</a>
+<a name="265"><span class="lineNum">     265 </span>            : {</a>
+<a name="266"><span class="lineNum">     266 </span>            :     typedef QString type;</a>
+<a name="267"><span class="lineNum">     267 </span>            :     typedef QString ConvertTo;</a>
+<a name="268"><span class="lineNum">     268 </span>            :     enum { ExactSize = true };</a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">        190 :     static int size(const QString &amp;a) { return a.size(); }</span></a>
+<a name="270"><span class="lineNum">     270 </span><span class="lineCov">        190 :     static inline void appendTo(const QString &amp;a, QChar *&amp;out)</span></a>
+<a name="271"><span class="lineNum">     271 </span>            :     {</a>
+<a name="272"><span class="lineNum">     272 </span><span class="lineCov">        190 :         const int n = a.size();</span></a>
+<a name="273"><span class="lineNum">     273 </span><span class="lineCov">        190 :         memcpy(out, reinterpret_cast&lt;const char*&gt;(a.constData()), sizeof(QChar) * n);</span></a>
+<a name="274"><span class="lineNum">     274 </span><span class="lineCov">        190 :         out += n;</span></a>
+<a name="275"><span class="lineNum">     275 </span><span class="lineCov">        190 :     }</span></a>
+<a name="276"><span class="lineNum">     276 </span>            : };</a>
+<a name="277"><span class="lineNum">     277 </span>            : </a>
+<a name="278"><span class="lineNum">     278 </span>            : template &lt;&gt; struct QConcatenable&lt;QStringRef&gt; : private QAbstractConcatenable</a>
+<a name="279"><span class="lineNum">     279 </span>            : {</a>
+<a name="280"><span class="lineNum">     280 </span>            :     typedef QStringRef type;</a>
+<a name="281"><span class="lineNum">     281 </span>            :     typedef QString ConvertTo;</a>
+<a name="282"><span class="lineNum">     282 </span>            :     enum { ExactSize = true };</a>
+<a name="283"><span class="lineNum">     283 </span>            :     static int size(const QStringRef &amp;a) { return a.size(); }</a>
+<a name="284"><span class="lineNum">     284 </span>            :     static inline void appendTo(const QStringRef &amp;a, QChar *&amp;out)</a>
+<a name="285"><span class="lineNum">     285 </span>            :     {</a>
+<a name="286"><span class="lineNum">     286 </span>            :         const int n = a.size();</a>
+<a name="287"><span class="lineNum">     287 </span>            :         memcpy(out, reinterpret_cast&lt;const char*&gt;(a.constData()), sizeof(QChar) * n);</a>
+<a name="288"><span class="lineNum">     288 </span>            :         out += n;</a>
+<a name="289"><span class="lineNum">     289 </span>            :     }</a>
+<a name="290"><span class="lineNum">     290 </span>            : };</a>
+<a name="291"><span class="lineNum">     291 </span>            : </a>
+<a name="292"><span class="lineNum">     292 </span>            : template &lt;&gt; struct QConcatenable&lt;QStringView&gt; : private QAbstractConcatenable</a>
+<a name="293"><span class="lineNum">     293 </span>            : {</a>
+<a name="294"><span class="lineNum">     294 </span>            :     typedef QStringView type;</a>
+<a name="295"><span class="lineNum">     295 </span>            :     typedef QString ConvertTo;</a>
+<a name="296"><span class="lineNum">     296 </span>            :     enum { ExactSize = true };</a>
+<a name="297"><span class="lineNum">     297 </span>            :     static int size(QStringView a) { return a.length(); }</a>
+<a name="298"><span class="lineNum">     298 </span>            :     static inline void appendTo(QStringView a, QChar *&amp;out)</a>
+<a name="299"><span class="lineNum">     299 </span>            :     {</a>
+<a name="300"><span class="lineNum">     300 </span>            :         const auto n = a.size();</a>
+<a name="301"><span class="lineNum">     301 </span>            :         memcpy(out, a.data(), sizeof(QChar) * n);</a>
+<a name="302"><span class="lineNum">     302 </span>            :         out += n;</a>
+<a name="303"><span class="lineNum">     303 </span>            :     }</a>
+<a name="304"><span class="lineNum">     304 </span>            : };</a>
+<a name="305"><span class="lineNum">     305 </span>            : </a>
+<a name="306"><span class="lineNum">     306 </span>            : template &lt;int N&gt; struct QConcatenable&lt;const char[N]&gt; : private QAbstractConcatenable</a>
+<a name="307"><span class="lineNum">     307 </span>            : {</a>
+<a name="308"><span class="lineNum">     308 </span>            :     typedef const char type[N];</a>
+<a name="309"><span class="lineNum">     309 </span>            :     typedef QByteArray ConvertTo;</a>
+<a name="310"><span class="lineNum">     310 </span>            :     enum { ExactSize = false };</a>
+<a name="311"><span class="lineNum">     311 </span>            :     static int size(const char[N]) { return N - 1; }</a>
+<a name="312"><span class="lineNum">     312 </span>            : #ifndef QT_NO_CAST_FROM_ASCII</a>
+<a name="313"><span class="lineNum">     313 </span>            :     static inline void QT_ASCII_CAST_WARN appendTo(const char a[N], QChar *&amp;out)</a>
+<a name="314"><span class="lineNum">     314 </span>            :     {</a>
+<a name="315"><span class="lineNum">     315 </span>            :         QAbstractConcatenable::convertFromAscii(a, N - 1, out);</a>
+<a name="316"><span class="lineNum">     316 </span>            :     }</a>
+<a name="317"><span class="lineNum">     317 </span>            : #endif</a>
+<a name="318"><span class="lineNum">     318 </span>            :     static inline void appendTo(const char a[N], char *&amp;out)</a>
+<a name="319"><span class="lineNum">     319 </span>            :     {</a>
+<a name="320"><span class="lineNum">     320 </span>            :         while (*a)</a>
+<a name="321"><span class="lineNum">     321 </span>            :             *out++ = *a++;</a>
+<a name="322"><span class="lineNum">     322 </span>            :     }</a>
+<a name="323"><span class="lineNum">     323 </span>            : };</a>
+<a name="324"><span class="lineNum">     324 </span>            : </a>
+<a name="325"><span class="lineNum">     325 </span>            : template &lt;int N&gt; struct QConcatenable&lt;char[N]&gt; : QConcatenable&lt;const char[N]&gt;</a>
+<a name="326"><span class="lineNum">     326 </span>            : {</a>
+<a name="327"><span class="lineNum">     327 </span>            :     typedef char type[N];</a>
+<a name="328"><span class="lineNum">     328 </span>            : };</a>
+<a name="329"><span class="lineNum">     329 </span>            : </a>
+<a name="330"><span class="lineNum">     330 </span>            : template &lt;&gt; struct QConcatenable&lt;const char *&gt; : private QAbstractConcatenable</a>
+<a name="331"><span class="lineNum">     331 </span>            : {</a>
+<a name="332"><span class="lineNum">     332 </span>            :     typedef const char *type;</a>
+<a name="333"><span class="lineNum">     333 </span>            :     typedef QByteArray ConvertTo;</a>
+<a name="334"><span class="lineNum">     334 </span>            :     enum { ExactSize = false };</a>
+<a name="335"><span class="lineNum">     335 </span>            :     static int size(const char *a) { return qstrlen(a); }</a>
+<a name="336"><span class="lineNum">     336 </span>            : #ifndef QT_NO_CAST_FROM_ASCII</a>
+<a name="337"><span class="lineNum">     337 </span>            :     static inline void QT_ASCII_CAST_WARN appendTo(const char *a, QChar *&amp;out)</a>
+<a name="338"><span class="lineNum">     338 </span>            :     { QAbstractConcatenable::convertFromAscii(a, -1, out); }</a>
+<a name="339"><span class="lineNum">     339 </span>            : #endif</a>
+<a name="340"><span class="lineNum">     340 </span>            :     static inline void appendTo(const char *a, char *&amp;out)</a>
+<a name="341"><span class="lineNum">     341 </span>            :     {</a>
+<a name="342"><span class="lineNum">     342 </span>            :         if (!a)</a>
+<a name="343"><span class="lineNum">     343 </span>            :             return;</a>
+<a name="344"><span class="lineNum">     344 </span>            :         while (*a)</a>
+<a name="345"><span class="lineNum">     345 </span>            :             *out++ = *a++;</a>
+<a name="346"><span class="lineNum">     346 </span>            :     }</a>
+<a name="347"><span class="lineNum">     347 </span>            : };</a>
+<a name="348"><span class="lineNum">     348 </span>            : </a>
+<a name="349"><span class="lineNum">     349 </span>            : template &lt;&gt; struct QConcatenable&lt;char *&gt; : QConcatenable&lt;const char*&gt;</a>
+<a name="350"><span class="lineNum">     350 </span>            : {</a>
+<a name="351"><span class="lineNum">     351 </span>            :     typedef char *type;</a>
+<a name="352"><span class="lineNum">     352 </span>            : };</a>
+<a name="353"><span class="lineNum">     353 </span>            : </a>
+<a name="354"><span class="lineNum">     354 </span>            : #if defined(Q_COMPILER_UNICODE_STRINGS)</a>
+<a name="355"><span class="lineNum">     355 </span>            : template &lt;int N&gt; struct QConcatenable&lt;const char16_t[N]&gt; : private QAbstractConcatenable</a>
+<a name="356"><span class="lineNum">     356 </span>            : {</a>
+<a name="357"><span class="lineNum">     357 </span>            :     using type = const char16_t[N];</a>
+<a name="358"><span class="lineNum">     358 </span>            :     using ConvertTo = QString;</a>
+<a name="359"><span class="lineNum">     359 </span>            :     enum { ExactSize = true };</a>
+<a name="360"><span class="lineNum">     360 </span>            :     static int size(const char16_t[N]) { return N - 1; }</a>
+<a name="361"><span class="lineNum">     361 </span>            :     static void appendTo(const char16_t a[N], QChar *&amp;out)</a>
+<a name="362"><span class="lineNum">     362 </span>            :     {</a>
+<a name="363"><span class="lineNum">     363 </span>            :         memcpy(out, a, (N - 1) * sizeof(char16_t));</a>
+<a name="364"><span class="lineNum">     364 </span>            :         out += N - 1;</a>
+<a name="365"><span class="lineNum">     365 </span>            :     }</a>
+<a name="366"><span class="lineNum">     366 </span>            : };</a>
+<a name="367"><span class="lineNum">     367 </span>            : </a>
+<a name="368"><span class="lineNum">     368 </span>            : template &lt;int N&gt; struct QConcatenable&lt;char16_t[N]&gt; : QConcatenable&lt;const char16_t[N]&gt;</a>
+<a name="369"><span class="lineNum">     369 </span>            : {</a>
+<a name="370"><span class="lineNum">     370 </span>            :     using type = char16_t[N];</a>
+<a name="371"><span class="lineNum">     371 </span>            : };</a>
+<a name="372"><span class="lineNum">     372 </span>            : </a>
+<a name="373"><span class="lineNum">     373 </span>            : template &lt;&gt; struct QConcatenable&lt;const char16_t *&gt; : private QAbstractConcatenable</a>
+<a name="374"><span class="lineNum">     374 </span>            : {</a>
+<a name="375"><span class="lineNum">     375 </span>            :     using type = const char16_t *;</a>
+<a name="376"><span class="lineNum">     376 </span>            :     using ConvertTo = QString;</a>
+<a name="377"><span class="lineNum">     377 </span>            :     enum { ExactSize = true };</a>
+<a name="378"><span class="lineNum">     378 </span>            :     static int size(const char16_t *a) { return QStringView(a).length(); }</a>
+<a name="379"><span class="lineNum">     379 </span>            :     static inline void QT_ASCII_CAST_WARN appendTo(const char16_t *a, QChar *&amp;out)</a>
+<a name="380"><span class="lineNum">     380 </span>            :     {</a>
+<a name="381"><span class="lineNum">     381 </span>            :         if (!a)</a>
+<a name="382"><span class="lineNum">     382 </span>            :             return;</a>
+<a name="383"><span class="lineNum">     383 </span>            :         while (*a)</a>
+<a name="384"><span class="lineNum">     384 </span>            :             *out++ = *a++;</a>
+<a name="385"><span class="lineNum">     385 </span>            :     }</a>
+<a name="386"><span class="lineNum">     386 </span>            : };</a>
+<a name="387"><span class="lineNum">     387 </span>            : </a>
+<a name="388"><span class="lineNum">     388 </span>            : template &lt;&gt; struct QConcatenable&lt;char16_t *&gt; : QConcatenable&lt;const char16_t*&gt;</a>
+<a name="389"><span class="lineNum">     389 </span>            : {</a>
+<a name="390"><span class="lineNum">     390 </span>            :     typedef char16_t *type;</a>
+<a name="391"><span class="lineNum">     391 </span>            : };</a>
+<a name="392"><span class="lineNum">     392 </span>            : #endif // UNICODE_STRINGS</a>
+<a name="393"><span class="lineNum">     393 </span>            : </a>
+<a name="394"><span class="lineNum">     394 </span>            : template &lt;&gt; struct QConcatenable&lt;QByteArray&gt; : private QAbstractConcatenable</a>
+<a name="395"><span class="lineNum">     395 </span>            : {</a>
+<a name="396"><span class="lineNum">     396 </span>            :     typedef QByteArray type;</a>
+<a name="397"><span class="lineNum">     397 </span>            :     typedef QByteArray ConvertTo;</a>
+<a name="398"><span class="lineNum">     398 </span>            :     enum { ExactSize = false };</a>
+<a name="399"><span class="lineNum">     399 </span>            :     static int size(const QByteArray &amp;ba) { return ba.size(); }</a>
+<a name="400"><span class="lineNum">     400 </span>            : #ifndef QT_NO_CAST_FROM_ASCII</a>
+<a name="401"><span class="lineNum">     401 </span>            :     static inline QT_ASCII_CAST_WARN void appendTo(const QByteArray &amp;ba, QChar *&amp;out)</a>
+<a name="402"><span class="lineNum">     402 </span>            :     {</a>
+<a name="403"><span class="lineNum">     403 </span>            :         QAbstractConcatenable::convertFromAscii(ba.constData(), ba.size(), out);</a>
+<a name="404"><span class="lineNum">     404 </span>            :     }</a>
+<a name="405"><span class="lineNum">     405 </span>            : #endif</a>
+<a name="406"><span class="lineNum">     406 </span>            :     static inline void appendTo(const QByteArray &amp;ba, char *&amp;out)</a>
+<a name="407"><span class="lineNum">     407 </span>            :     {</a>
+<a name="408"><span class="lineNum">     408 </span>            :         const char *a = ba.constData();</a>
+<a name="409"><span class="lineNum">     409 </span>            :         const char * const end = ba.end();</a>
+<a name="410"><span class="lineNum">     410 </span>            :         while (a != end)</a>
+<a name="411"><span class="lineNum">     411 </span>            :             *out++ = *a++;</a>
+<a name="412"><span class="lineNum">     412 </span>            :     }</a>
+<a name="413"><span class="lineNum">     413 </span>            : };</a>
+<a name="414"><span class="lineNum">     414 </span>            : </a>
+<a name="415"><span class="lineNum">     415 </span>            : </a>
+<a name="416"><span class="lineNum">     416 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="417"><span class="lineNum">     417 </span>            : struct QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;</a>
+<a name="418"><span class="lineNum">     418 </span>            : {</a>
+<a name="419"><span class="lineNum">     419 </span>            :     typedef QStringBuilder&lt;A, B&gt; type;</a>
+<a name="420"><span class="lineNum">     420 </span>            :     typedef typename QtStringBuilder::ConvertToTypeHelper&lt;typename QConcatenable&lt;A&gt;::ConvertTo, typename QConcatenable&lt;B&gt;::ConvertTo&gt;::ConvertTo ConvertTo;</a>
+<a name="421"><span class="lineNum">     421 </span>            :     enum { ExactSize = QConcatenable&lt;A&gt;::ExactSize &amp;&amp; QConcatenable&lt;B&gt;::ExactSize };</a>
+<a name="422"><span class="lineNum">     422 </span><span class="lineCov">         98 :     static int size(const type &amp;p)</span></a>
+<a name="423"><span class="lineNum">     423 </span>            :     {</a>
+<a name="424"><span class="lineNum">     424 </span><span class="lineCov">         98 :         return QConcatenable&lt;A&gt;::size(p.a) + QConcatenable&lt;B&gt;::size(p.b);</span></a>
+<a name="425"><span class="lineNum">     425 </span>            :     }</a>
+<a name="426"><span class="lineNum">     426 </span><span class="lineCov">         98 :     template&lt;typename T&gt; static inline void appendTo(const type &amp;p, T *&amp;out)</span></a>
+<a name="427"><span class="lineNum">     427 </span>            :     {</a>
+<a name="428"><span class="lineNum">     428 </span><span class="lineCov">         98 :         QConcatenable&lt;A&gt;::appendTo(p.a, out);</span></a>
+<a name="429"><span class="lineNum">     429 </span><span class="lineCov">         98 :         QConcatenable&lt;B&gt;::appendTo(p.b, out);</span></a>
+<a name="430"><span class="lineNum">     430 </span><span class="lineCov">         98 :     }</span></a>
+<a name="431"><span class="lineNum">     431 </span>            : };</a>
+<a name="432"><span class="lineNum">     432 </span>            : </a>
+<a name="433"><span class="lineNum">     433 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="434"><span class="lineNum">     434 </span>            : QStringBuilder&lt;typename QConcatenable&lt;A&gt;::type, typename QConcatenable&lt;B&gt;::type&gt;</a>
+<a name="435"><span class="lineNum">     435 </span>            : operator%(const A &amp;a, const B &amp;b)</a>
+<a name="436"><span class="lineNum">     436 </span>            : {</a>
+<a name="437"><span class="lineNum">     437 </span>            :    return QStringBuilder&lt;typename QConcatenable&lt;A&gt;::type, typename QConcatenable&lt;B&gt;::type&gt;(a, b);</a>
+<a name="438"><span class="lineNum">     438 </span>            : }</a>
+<a name="439"><span class="lineNum">     439 </span>            : </a>
+<a name="440"><span class="lineNum">     440 </span>            : // QT_USE_FAST_OPERATOR_PLUS was introduced in 4.7, QT_USE_QSTRINGBUILDER is to be used from 4.8 onwards</a>
+<a name="441"><span class="lineNum">     441 </span>            : // QT_USE_FAST_OPERATOR_PLUS does not remove the normal operator+ for QByteArray</a>
+<a name="442"><span class="lineNum">     442 </span>            : #if defined(QT_USE_FAST_OPERATOR_PLUS) || defined(QT_USE_QSTRINGBUILDER)</a>
+<a name="443"><span class="lineNum">     443 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="444"><span class="lineNum">     444 </span>            : QStringBuilder&lt;typename QConcatenable&lt;A&gt;::type, typename QConcatenable&lt;B&gt;::type&gt;</a>
+<a name="445"><span class="lineNum">     445 </span><span class="lineCov">        113 : operator+(const A &amp;a, const B &amp;b)</span></a>
+<a name="446"><span class="lineNum">     446 </span>            : {</a>
+<a name="447"><span class="lineNum">     447 </span><span class="lineCov">        113 :    return QStringBuilder&lt;typename QConcatenable&lt;A&gt;::type, typename QConcatenable&lt;B&gt;::type&gt;(a, b);</span></a>
+<a name="448"><span class="lineNum">     448 </span>            : }</a>
+<a name="449"><span class="lineNum">     449 </span>            : #endif</a>
+<a name="450"><span class="lineNum">     450 </span>            : </a>
+<a name="451"><span class="lineNum">     451 </span>            : namespace QtStringBuilder {</a>
+<a name="452"><span class="lineNum">     452 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="453"><span class="lineNum">     453 </span>            : QByteArray &amp;appendToByteArray(QByteArray &amp;a, const QStringBuilder&lt;A, B&gt; &amp;b, char)</a>
+<a name="454"><span class="lineNum">     454 </span>            : {</a>
+<a name="455"><span class="lineNum">     455 </span>            :     // append 8-bit data to a byte array</a>
+<a name="456"><span class="lineNum">     456 </span>            :     int len = a.size() + QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::size(b);</a>
+<a name="457"><span class="lineNum">     457 </span>            :     a.reserve(len);</a>
+<a name="458"><span class="lineNum">     458 </span>            :     char *it = a.data() + a.size();</a>
+<a name="459"><span class="lineNum">     459 </span>            :     QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::appendTo(b, it);</a>
+<a name="460"><span class="lineNum">     460 </span>            :     a.resize(len); //we need to resize after the appendTo for the case str+=foo+str</a>
+<a name="461"><span class="lineNum">     461 </span>            :     return a;</a>
+<a name="462"><span class="lineNum">     462 </span>            : }</a>
+<a name="463"><span class="lineNum">     463 </span>            : </a>
+<a name="464"><span class="lineNum">     464 </span>            : #ifndef QT_NO_CAST_TO_ASCII</a>
+<a name="465"><span class="lineNum">     465 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="466"><span class="lineNum">     466 </span>            : QByteArray &amp;appendToByteArray(QByteArray &amp;a, const QStringBuilder&lt;A, B&gt; &amp;b, QChar)</a>
+<a name="467"><span class="lineNum">     467 </span>            : {</a>
+<a name="468"><span class="lineNum">     468 </span>            :     return a += QString(b).toUtf8();</a>
+<a name="469"><span class="lineNum">     469 </span>            : }</a>
+<a name="470"><span class="lineNum">     470 </span>            : #endif</a>
+<a name="471"><span class="lineNum">     471 </span>            : }</a>
+<a name="472"><span class="lineNum">     472 </span>            : </a>
+<a name="473"><span class="lineNum">     473 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="474"><span class="lineNum">     474 </span>            : QByteArray &amp;operator+=(QByteArray &amp;a, const QStringBuilder&lt;A, B&gt; &amp;b)</a>
+<a name="475"><span class="lineNum">     475 </span>            : {</a>
+<a name="476"><span class="lineNum">     476 </span>            :     return QtStringBuilder::appendToByteArray(a, b,</a>
+<a name="477"><span class="lineNum">     477 </span>            :                                               typename QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::ConvertTo::value_type());</a>
+<a name="478"><span class="lineNum">     478 </span>            : }</a>
+<a name="479"><span class="lineNum">     479 </span>            : </a>
+<a name="480"><span class="lineNum">     480 </span>            : template &lt;typename A, typename B&gt;</a>
+<a name="481"><span class="lineNum">     481 </span><span class="lineCov">         92 : QString &amp;operator+=(QString &amp;a, const QStringBuilder&lt;A, B&gt; &amp;b)</span></a>
+<a name="482"><span class="lineNum">     482 </span>            : {</a>
+<a name="483"><span class="lineNum">     483 </span><span class="lineCov">         92 :     int len = a.size() + QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::size(b);</span></a>
+<a name="484"><span class="lineNum">     484 </span><span class="lineCov">         92 :     a.reserve(len);</span></a>
+<a name="485"><span class="lineNum">     485 </span><span class="lineCov">         92 :     QChar *it = a.data() + a.size();</span></a>
+<a name="486"><span class="lineNum">     486 </span><span class="lineCov">         92 :     QConcatenable&lt; QStringBuilder&lt;A, B&gt; &gt;::appendTo(b, it);</span></a>
+<a name="487"><span class="lineNum">     487 </span><span class="lineCov">         92 :     a.resize(int(it - a.constData())); //may be smaller than len if there was conversion from utf8</span></a>
+<a name="488"><span class="lineNum">     488 </span><span class="lineCov">         92 :     return a;</span></a>
+<a name="489"><span class="lineNum">     489 </span>            : }</a>
+<a name="490"><span class="lineNum">     490 </span>            : </a>
+<a name="491"><span class="lineNum">     491 </span>            : </a>
+<a name="492"><span class="lineNum">     492 </span>            : QT_END_NAMESPACE</a>
+<a name="493"><span class="lineNum">     493 </span>            : </a>
+<a name="494"><span class="lineNum">     494 </span>            : #endif // QSTRINGBUILDER_H</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.15</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

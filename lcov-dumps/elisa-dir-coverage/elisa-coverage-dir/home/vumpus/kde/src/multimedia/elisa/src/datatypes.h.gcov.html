@@ -1,0 +1,505 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - elisa-coverage.info - /home/vumpus/kde/src/multimedia/elisa/src/datatypes.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../../index.html">top level</a> - <a href="index.html">home/vumpus/kde/src/multimedia/elisa/src</a> - datatypes.h<span style="font-size: 80%;"> (source / <a href="datatypes.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">elisa-coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2021-04-28 18:50:59</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<a name="2"><span class="lineNum">       2 </span>            :    SPDX-FileCopyrightText: 2016 (c) Matthieu Gallien &lt;matthieu_gallien@yahoo.fr&gt;</a>
+<a name="3"><span class="lineNum">       3 </span>            :    SPDX-FileCopyrightText: 2019 (c) Alexander Stippich &lt;a.stippich@gmx.net&gt;</a>
+<a name="4"><span class="lineNum">       4 </span>            : </a>
+<a name="5"><span class="lineNum">       5 </span>            :    SPDX-License-Identifier: LGPL-3.0-or-later</a>
+<a name="6"><span class="lineNum">       6 </span>            :  */</a>
+<a name="7"><span class="lineNum">       7 </span>            : </a>
+<a name="8"><span class="lineNum">       8 </span>            : #ifndef DATATYPES_H</a>
+<a name="9"><span class="lineNum">       9 </span>            : #define DATATYPES_H</a>
+<a name="10"><span class="lineNum">      10 </span>            : </a>
+<a name="11"><span class="lineNum">      11 </span>            : #include &quot;elisaLib_export.h&quot;</a>
+<a name="12"><span class="lineNum">      12 </span>            : </a>
+<a name="13"><span class="lineNum">      13 </span>            : #include &quot;elisautils.h&quot;</a>
+<a name="14"><span class="lineNum">      14 </span>            : </a>
+<a name="15"><span class="lineNum">      15 </span>            : #include &lt;QObject&gt;</a>
+<a name="16"><span class="lineNum">      16 </span>            : #include &lt;QString&gt;</a>
+<a name="17"><span class="lineNum">      17 </span>            : #include &lt;QList&gt;</a>
+<a name="18"><span class="lineNum">      18 </span>            : #include &lt;QVariant&gt;</a>
+<a name="19"><span class="lineNum">      19 </span>            : #include &lt;QUrl&gt;</a>
+<a name="20"><span class="lineNum">      20 </span>            : #include &lt;QDateTime&gt;</a>
+<a name="21"><span class="lineNum">      21 </span>            : #include &lt;QMap&gt;</a>
+<a name="22"><span class="lineNum">      22 </span>            : </a>
+<a name="23"><span class="lineNum">      23 </span>            : class ELISALIB_EXPORT DataTypes : public QObject</a>
+<a name="24"><span class="lineNum">      24 </span>            : {</a>
+<a name="25"><span class="lineNum">      25 </span>            :     Q_OBJECT</a>
+<a name="26"><span class="lineNum">      26 </span>            : </a>
+<a name="27"><span class="lineNum">      27 </span>            : public:</a>
+<a name="28"><span class="lineNum">      28 </span>            : </a>
+<a name="29"><span class="lineNum">      29 </span>            :     enum ColumnsRoles {</a>
+<a name="30"><span class="lineNum">      30 </span>            :         TitleRole = Qt::UserRole + 1,</a>
+<a name="31"><span class="lineNum">      31 </span>            :         SecondaryTextRole,</a>
+<a name="32"><span class="lineNum">      32 </span>            :         ImageUrlRole,</a>
+<a name="33"><span class="lineNum">      33 </span>            :         ShadowForImageRole,</a>
+<a name="34"><span class="lineNum">      34 </span>            :         ChildModelRole,</a>
+<a name="35"><span class="lineNum">      35 </span>            :         DurationRole,</a>
+<a name="36"><span class="lineNum">      36 </span>            :         StringDurationRole,</a>
+<a name="37"><span class="lineNum">      37 </span>            :         ArtistRole,</a>
+<a name="38"><span class="lineNum">      38 </span>            :         AllArtistsRole,</a>
+<a name="39"><span class="lineNum">      39 </span>            :         HighestTrackRating,</a>
+<a name="40"><span class="lineNum">      40 </span>            :         AlbumRole,</a>
+<a name="41"><span class="lineNum">      41 </span>            :         AlbumArtistRole,</a>
+<a name="42"><span class="lineNum">      42 </span>            :         IsValidAlbumArtistRole,</a>
+<a name="43"><span class="lineNum">      43 </span>            :         TrackNumberRole,</a>
+<a name="44"><span class="lineNum">      44 </span>            :         DiscNumberRole,</a>
+<a name="45"><span class="lineNum">      45 </span>            :         RatingRole,</a>
+<a name="46"><span class="lineNum">      46 </span>            :         GenreRole,</a>
+<a name="47"><span class="lineNum">      47 </span>            :         LyricistRole,</a>
+<a name="48"><span class="lineNum">      48 </span>            :         ComposerRole,</a>
+<a name="49"><span class="lineNum">      49 </span>            :         CommentRole,</a>
+<a name="50"><span class="lineNum">      50 </span>            :         YearRole,</a>
+<a name="51"><span class="lineNum">      51 </span>            :         ChannelsRole,</a>
+<a name="52"><span class="lineNum">      52 </span>            :         BitRateRole,</a>
+<a name="53"><span class="lineNum">      53 </span>            :         SampleRateRole,</a>
+<a name="54"><span class="lineNum">      54 </span>            :         ResourceRole,</a>
+<a name="55"><span class="lineNum">      55 </span>            :         IdRole,</a>
+<a name="56"><span class="lineNum">      56 </span>            :         ParentIdRole,</a>
+<a name="57"><span class="lineNum">      57 </span>            :         DatabaseIdRole,</a>
+<a name="58"><span class="lineNum">      58 </span>            :         IsSingleDiscAlbumRole,</a>
+<a name="59"><span class="lineNum">      59 </span>            :         ContainerDataRole,</a>
+<a name="60"><span class="lineNum">      60 </span>            :         IsPartialDataRole,</a>
+<a name="61"><span class="lineNum">      61 </span>            :         AlbumIdRole,</a>
+<a name="62"><span class="lineNum">      62 </span>            :         HasEmbeddedCover,</a>
+<a name="63"><span class="lineNum">      63 </span>            :         FileModificationTime,</a>
+<a name="64"><span class="lineNum">      64 </span>            :         FirstPlayDate,</a>
+<a name="65"><span class="lineNum">      65 </span>            :         LastPlayDate,</a>
+<a name="66"><span class="lineNum">      66 </span>            :         PlayCounter,</a>
+<a name="67"><span class="lineNum">      67 </span>            :         PlayFrequency,</a>
+<a name="68"><span class="lineNum">      68 </span>            :         ElementTypeRole,</a>
+<a name="69"><span class="lineNum">      69 </span>            :         LyricsRole,</a>
+<a name="70"><span class="lineNum">      70 </span>            :         FullDataRole,</a>
+<a name="71"><span class="lineNum">      71 </span>            :         IsDirectoryRole,</a>
+<a name="72"><span class="lineNum">      72 </span>            :         IsPlayListRole,</a>
+<a name="73"><span class="lineNum">      73 </span>            :         FilePathRole,</a>
+<a name="74"><span class="lineNum">      74 </span>            :         HasChildrenRole,</a>
+<a name="75"><span class="lineNum">      75 </span>            :     };</a>
+<a name="76"><span class="lineNum">      76 </span>            : </a>
+<a name="77"><span class="lineNum">      77 </span>            :     Q_ENUM(ColumnsRoles)</a>
+<a name="78"><span class="lineNum">      78 </span>            : </a>
+<a name="79"><span class="lineNum">      79 </span>            :     using DataType = QMap&lt;ColumnsRoles, QVariant&gt;;</a>
+<a name="80"><span class="lineNum">      80 </span>            : </a>
+<a name="81"><span class="lineNum">      81 </span>            : public:</a>
+<a name="82"><span class="lineNum">      82 </span>            : </a>
+<a name="83"><span class="lineNum">      83 </span>            :     class MusicDataType : public DataType</a>
+<a name="84"><span class="lineNum">      84 </span>            :     {</a>
+<a name="85"><span class="lineNum">      85 </span>            :     public:</a>
+<a name="86"><span class="lineNum">      86 </span>            :         using DataType::DataType;</a>
+<a name="87"><span class="lineNum">      87 </span>            : </a>
+<a name="88"><span class="lineNum">      88 </span>            :         [[nodiscard]] bool hasDatabaseId() const</a>
+<a name="89"><span class="lineNum">      89 </span>            :         {</a>
+<a name="90"><span class="lineNum">      90 </span>            :             return find(key_type::DatabaseIdRole) != end();</a>
+<a name="91"><span class="lineNum">      91 </span>            :         }</a>
+<a name="92"><span class="lineNum">      92 </span>            : </a>
+<a name="93"><span class="lineNum">      93 </span>            :         [[nodiscard]] qulonglong databaseId() const</a>
+<a name="94"><span class="lineNum">      94 </span>            :         {</a>
+<a name="95"><span class="lineNum">      95 </span>            :             return operator[](key_type::DatabaseIdRole).toULongLong();</a>
+<a name="96"><span class="lineNum">      96 </span>            :         }</a>
+<a name="97"><span class="lineNum">      97 </span>            : </a>
+<a name="98"><span class="lineNum">      98 </span>            :         [[nodiscard]] bool hasElementType() const</a>
+<a name="99"><span class="lineNum">      99 </span>            :         {</a>
+<a name="100"><span class="lineNum">     100 </span>            :             return find(key_type::ElementTypeRole) != end();</a>
+<a name="101"><span class="lineNum">     101 </span>            :         }</a>
+<a name="102"><span class="lineNum">     102 </span>            : </a>
+<a name="103"><span class="lineNum">     103 </span>            :         [[nodiscard]] ElisaUtils::PlayListEntryType elementType() const</a>
+<a name="104"><span class="lineNum">     104 </span>            :         {</a>
+<a name="105"><span class="lineNum">     105 </span>            :             return operator[](key_type::ElementTypeRole).value&lt;ElisaUtils::PlayListEntryType&gt;();</a>
+<a name="106"><span class="lineNum">     106 </span>            :         }</a>
+<a name="107"><span class="lineNum">     107 </span>            :     };</a>
+<a name="108"><span class="lineNum">     108 </span>            : </a>
+<a name="109"><span class="lineNum">     109 </span>            :     class TrackDataType : public MusicDataType</a>
+<a name="110"><span class="lineNum">     110 </span>            :     {</a>
+<a name="111"><span class="lineNum">     111 </span>            :     public:</a>
+<a name="112"><span class="lineNum">     112 </span>            : </a>
+<a name="113"><span class="lineNum">     113 </span>            :         using MusicDataType::MusicDataType;</a>
+<a name="114"><span class="lineNum">     114 </span>            : </a>
+<a name="115"><span class="lineNum">     115 </span>            :         TrackDataType(bool aValid, QString aId, QString aParentId, QString aTitle, QString aArtist, QString aAlbumName,</a>
+<a name="116"><span class="lineNum">     116 </span>            :                       QString aAlbumArtist, int aTrackNumber, int aDiscNumber, QTime aDuration, QUrl aResourceURI,</a>
+<a name="117"><span class="lineNum">     117 </span>            :                       const QDateTime &amp;fileModificationTime, QUrl aAlbumCover, int rating, bool aIsSingleDiscAlbum,</a>
+<a name="118"><span class="lineNum">     118 </span>            :                       QString aGenre, QString aComposer, QString aLyricist, bool aHasEmbeddedCover)</a>
+<a name="119"><span class="lineNum">     119 </span>            :             : MusicDataType({{key_type::TitleRole, std::move(aTitle)}, {key_type::AlbumRole, std::move(aAlbumName)},</a>
+<a name="120"><span class="lineNum">     120 </span>            :                              {key_type::ArtistRole, std::move(aArtist)}, {key_type::AlbumArtistRole, std::move(aAlbumArtist)},</a>
+<a name="121"><span class="lineNum">     121 </span>            :                              {key_type::IdRole, std::move(aId)}, {key_type::ParentIdRole, std::move(aParentId)},</a>
+<a name="122"><span class="lineNum">     122 </span>            :                              {key_type::TrackNumberRole, aTrackNumber}, {key_type::DiscNumberRole, aDiscNumber},</a>
+<a name="123"><span class="lineNum">     123 </span>            :                              {key_type::DurationRole, aDuration}, {key_type::ResourceRole, std::move(aResourceURI)},</a>
+<a name="124"><span class="lineNum">     124 </span>            :                              {key_type::FileModificationTime, fileModificationTime}, {key_type::ImageUrlRole, std::move(aAlbumCover)},</a>
+<a name="125"><span class="lineNum">     125 </span>            :                              {key_type::RatingRole, rating}, {key_type::IsSingleDiscAlbumRole, aIsSingleDiscAlbum},</a>
+<a name="126"><span class="lineNum">     126 </span>            :                              {key_type::GenreRole, std::move(aGenre)}, {key_type::ComposerRole, std::move(aComposer)},</a>
+<a name="127"><span class="lineNum">     127 </span>            :                              {key_type::LyricistRole, std::move(aLyricist)}, {key_type::HasEmbeddedCover, aHasEmbeddedCover},</a>
+<a name="128"><span class="lineNum">     128 </span>            :                              {key_type::ElementTypeRole, ElisaUtils::Track},})</a>
+<a name="129"><span class="lineNum">     129 </span>            :         {</a>
+<a name="130"><span class="lineNum">     130 </span>            :             Q_UNUSED(aValid)</a>
+<a name="131"><span class="lineNum">     131 </span>            :         }</a>
+<a name="132"><span class="lineNum">     132 </span>            : </a>
+<a name="133"><span class="lineNum">     133 </span>            :         [[nodiscard]] bool isValid() const</a>
+<a name="134"><span class="lineNum">     134 </span>            :         {</a>
+<a name="135"><span class="lineNum">     135 </span>            :             return !isEmpty() &amp;&amp; duration().isValid();</a>
+<a name="136"><span class="lineNum">     136 </span>            :         }</a>
+<a name="137"><span class="lineNum">     137 </span>            : </a>
+<a name="138"><span class="lineNum">     138 </span>            :         [[nodiscard]] QString title() const</a>
+<a name="139"><span class="lineNum">     139 </span>            :         {</a>
+<a name="140"><span class="lineNum">     140 </span>            :             return operator[](key_type::TitleRole).toString();</a>
+<a name="141"><span class="lineNum">     141 </span>            :         }</a>
+<a name="142"><span class="lineNum">     142 </span>            : </a>
+<a name="143"><span class="lineNum">     143 </span>            :         [[nodiscard]] QString artist() const</a>
+<a name="144"><span class="lineNum">     144 </span>            :         {</a>
+<a name="145"><span class="lineNum">     145 </span>            :             return operator[](key_type::ArtistRole).toString();</a>
+<a name="146"><span class="lineNum">     146 </span>            :         }</a>
+<a name="147"><span class="lineNum">     147 </span>            : </a>
+<a name="148"><span class="lineNum">     148 </span>            :         [[nodiscard]] bool hasArtist() const</a>
+<a name="149"><span class="lineNum">     149 </span>            :         {</a>
+<a name="150"><span class="lineNum">     150 </span>            :             return find(key_type::ArtistRole) != end();</a>
+<a name="151"><span class="lineNum">     151 </span>            :         }</a>
+<a name="152"><span class="lineNum">     152 </span>            : </a>
+<a name="153"><span class="lineNum">     153 </span>            :         [[nodiscard]] qulonglong albumId() const</a>
+<a name="154"><span class="lineNum">     154 </span>            :         {</a>
+<a name="155"><span class="lineNum">     155 </span>            :             return operator[](key_type::AlbumIdRole).toULongLong();</a>
+<a name="156"><span class="lineNum">     156 </span>            :         }</a>
+<a name="157"><span class="lineNum">     157 </span>            : </a>
+<a name="158"><span class="lineNum">     158 </span>            :         [[nodiscard]] bool hasAlbum() const</a>
+<a name="159"><span class="lineNum">     159 </span>            :         {</a>
+<a name="160"><span class="lineNum">     160 </span>            :             return find(key_type::AlbumRole) != end();</a>
+<a name="161"><span class="lineNum">     161 </span>            :         }</a>
+<a name="162"><span class="lineNum">     162 </span>            : </a>
+<a name="163"><span class="lineNum">     163 </span>            :         [[nodiscard]] QString album() const</a>
+<a name="164"><span class="lineNum">     164 </span>            :         {</a>
+<a name="165"><span class="lineNum">     165 </span>            :             return operator[](key_type::AlbumRole).toString();</a>
+<a name="166"><span class="lineNum">     166 </span>            :         }</a>
+<a name="167"><span class="lineNum">     167 </span>            : </a>
+<a name="168"><span class="lineNum">     168 </span>            :         [[nodiscard]] QString albumArtist() const</a>
+<a name="169"><span class="lineNum">     169 </span>            :         {</a>
+<a name="170"><span class="lineNum">     170 </span>            :             return operator[](key_type::AlbumArtistRole).toString();</a>
+<a name="171"><span class="lineNum">     171 </span>            :         }</a>
+<a name="172"><span class="lineNum">     172 </span>            : </a>
+<a name="173"><span class="lineNum">     173 </span>            :         [[nodiscard]] bool hasAlbumArtist() const</a>
+<a name="174"><span class="lineNum">     174 </span>            :         {</a>
+<a name="175"><span class="lineNum">     175 </span>            :             return find(key_type::AlbumArtistRole) != end();</a>
+<a name="176"><span class="lineNum">     176 </span>            :         }</a>
+<a name="177"><span class="lineNum">     177 </span>            : </a>
+<a name="178"><span class="lineNum">     178 </span>            :         [[nodiscard]] bool hasTrackNumber() const</a>
+<a name="179"><span class="lineNum">     179 </span>            :         {</a>
+<a name="180"><span class="lineNum">     180 </span>            :             return find(key_type::TrackNumberRole) != end();</a>
+<a name="181"><span class="lineNum">     181 </span>            :         }</a>
+<a name="182"><span class="lineNum">     182 </span>            : </a>
+<a name="183"><span class="lineNum">     183 </span>            :         [[nodiscard]] int trackNumber() const</a>
+<a name="184"><span class="lineNum">     184 </span>            :         {</a>
+<a name="185"><span class="lineNum">     185 </span>            :             return operator[](key_type::TrackNumberRole).toInt();</a>
+<a name="186"><span class="lineNum">     186 </span>            :         }</a>
+<a name="187"><span class="lineNum">     187 </span>            : </a>
+<a name="188"><span class="lineNum">     188 </span>            :         [[nodiscard]] bool hasDiscNumber() const</a>
+<a name="189"><span class="lineNum">     189 </span>            :         {</a>
+<a name="190"><span class="lineNum">     190 </span>            :             return find(key_type::DiscNumberRole) != end();</a>
+<a name="191"><span class="lineNum">     191 </span>            :         }</a>
+<a name="192"><span class="lineNum">     192 </span>            : </a>
+<a name="193"><span class="lineNum">     193 </span>            :         [[nodiscard]] int discNumber() const</a>
+<a name="194"><span class="lineNum">     194 </span>            :         {</a>
+<a name="195"><span class="lineNum">     195 </span>            :             return operator[](key_type::DiscNumberRole).toInt();</a>
+<a name="196"><span class="lineNum">     196 </span>            :         }</a>
+<a name="197"><span class="lineNum">     197 </span>            : </a>
+<a name="198"><span class="lineNum">     198 </span>            :         [[nodiscard]] QTime duration() const</a>
+<a name="199"><span class="lineNum">     199 </span>            :         {</a>
+<a name="200"><span class="lineNum">     200 </span>            :             return operator[](key_type::DurationRole).toTime();</a>
+<a name="201"><span class="lineNum">     201 </span>            :         }</a>
+<a name="202"><span class="lineNum">     202 </span>            : </a>
+<a name="203"><span class="lineNum">     203 </span>            :         [[nodiscard]] QUrl resourceURI() const</a>
+<a name="204"><span class="lineNum">     204 </span>            :         {</a>
+<a name="205"><span class="lineNum">     205 </span>            :             return operator[](key_type::ResourceRole).toUrl();</a>
+<a name="206"><span class="lineNum">     206 </span>            :         }</a>
+<a name="207"><span class="lineNum">     207 </span>            : </a>
+<a name="208"><span class="lineNum">     208 </span>            :         [[nodiscard]] QUrl albumCover() const</a>
+<a name="209"><span class="lineNum">     209 </span>            :         {</a>
+<a name="210"><span class="lineNum">     210 </span>            :             return operator[](key_type::ImageUrlRole).toUrl();</a>
+<a name="211"><span class="lineNum">     211 </span>            :         }</a>
+<a name="212"><span class="lineNum">     212 </span>            : </a>
+<a name="213"><span class="lineNum">     213 </span>            :         [[nodiscard]] bool isSingleDiscAlbum() const</a>
+<a name="214"><span class="lineNum">     214 </span>            :         {</a>
+<a name="215"><span class="lineNum">     215 </span>            :             return operator[](key_type::IsSingleDiscAlbumRole).toBool();</a>
+<a name="216"><span class="lineNum">     216 </span>            :         }</a>
+<a name="217"><span class="lineNum">     217 </span>            : </a>
+<a name="218"><span class="lineNum">     218 </span>            :         [[nodiscard]] int rating() const</a>
+<a name="219"><span class="lineNum">     219 </span>            :         {</a>
+<a name="220"><span class="lineNum">     220 </span>            :             return operator[](key_type::RatingRole).toInt();</a>
+<a name="221"><span class="lineNum">     221 </span>            :         }</a>
+<a name="222"><span class="lineNum">     222 </span>            : </a>
+<a name="223"><span class="lineNum">     223 </span>            :         [[nodiscard]] QString genre() const</a>
+<a name="224"><span class="lineNum">     224 </span>            :         {</a>
+<a name="225"><span class="lineNum">     225 </span>            :             return operator[](key_type::GenreRole).toString();</a>
+<a name="226"><span class="lineNum">     226 </span>            :         }</a>
+<a name="227"><span class="lineNum">     227 </span>            : </a>
+<a name="228"><span class="lineNum">     228 </span>            :         [[nodiscard]] bool hasGenre() const</a>
+<a name="229"><span class="lineNum">     229 </span>            :         {</a>
+<a name="230"><span class="lineNum">     230 </span>            :             return find(key_type::GenreRole) != end();</a>
+<a name="231"><span class="lineNum">     231 </span>            :         }</a>
+<a name="232"><span class="lineNum">     232 </span>            : </a>
+<a name="233"><span class="lineNum">     233 </span>            :         [[nodiscard]] QString composer() const</a>
+<a name="234"><span class="lineNum">     234 </span>            :         {</a>
+<a name="235"><span class="lineNum">     235 </span>            :             return operator[](key_type::ComposerRole).toString();</a>
+<a name="236"><span class="lineNum">     236 </span>            :         }</a>
+<a name="237"><span class="lineNum">     237 </span>            : </a>
+<a name="238"><span class="lineNum">     238 </span>            :         [[nodiscard]] bool hasComposer() const</a>
+<a name="239"><span class="lineNum">     239 </span>            :         {</a>
+<a name="240"><span class="lineNum">     240 </span>            :             return find(key_type::ComposerRole) != end();</a>
+<a name="241"><span class="lineNum">     241 </span>            :         }</a>
+<a name="242"><span class="lineNum">     242 </span>            : </a>
+<a name="243"><span class="lineNum">     243 </span>            :         [[nodiscard]] QString lyricist() const</a>
+<a name="244"><span class="lineNum">     244 </span>            :         {</a>
+<a name="245"><span class="lineNum">     245 </span>            :             return operator[](key_type::LyricistRole).toString();</a>
+<a name="246"><span class="lineNum">     246 </span>            :         }</a>
+<a name="247"><span class="lineNum">     247 </span>            : </a>
+<a name="248"><span class="lineNum">     248 </span>            :         [[nodiscard]] bool hasLyricist() const</a>
+<a name="249"><span class="lineNum">     249 </span>            :         {</a>
+<a name="250"><span class="lineNum">     250 </span>            :             return find(key_type::LyricistRole) != end();</a>
+<a name="251"><span class="lineNum">     251 </span>            :         }</a>
+<a name="252"><span class="lineNum">     252 </span>            : </a>
+<a name="253"><span class="lineNum">     253 </span>            :         [[nodiscard]] QString lyrics() const</a>
+<a name="254"><span class="lineNum">     254 </span>            :         {</a>
+<a name="255"><span class="lineNum">     255 </span>            :             return operator[](key_type::LyricsRole).toString();</a>
+<a name="256"><span class="lineNum">     256 </span>            :         }</a>
+<a name="257"><span class="lineNum">     257 </span>            : </a>
+<a name="258"><span class="lineNum">     258 </span>            :         [[nodiscard]] bool hasLyrics() const</a>
+<a name="259"><span class="lineNum">     259 </span>            :         {</a>
+<a name="260"><span class="lineNum">     260 </span>            :             return find(key_type::LyricsRole) != end();</a>
+<a name="261"><span class="lineNum">     261 </span>            :         }</a>
+<a name="262"><span class="lineNum">     262 </span>            : </a>
+<a name="263"><span class="lineNum">     263 </span>            :         [[nodiscard]] QString comment() const</a>
+<a name="264"><span class="lineNum">     264 </span>            :         {</a>
+<a name="265"><span class="lineNum">     265 </span>            :             return operator[](key_type::CommentRole).toString();</a>
+<a name="266"><span class="lineNum">     266 </span>            :         }</a>
+<a name="267"><span class="lineNum">     267 </span>            : </a>
+<a name="268"><span class="lineNum">     268 </span>            :         [[nodiscard]] bool hasComment() const</a>
+<a name="269"><span class="lineNum">     269 </span>            :         {</a>
+<a name="270"><span class="lineNum">     270 </span>            :             return find(key_type::CommentRole) != end();</a>
+<a name="271"><span class="lineNum">     271 </span>            :         }</a>
+<a name="272"><span class="lineNum">     272 </span>            : </a>
+<a name="273"><span class="lineNum">     273 </span>            :         [[nodiscard]] int year() const</a>
+<a name="274"><span class="lineNum">     274 </span>            :         {</a>
+<a name="275"><span class="lineNum">     275 </span>            :             return operator[](key_type::YearRole).toInt();</a>
+<a name="276"><span class="lineNum">     276 </span>            :         }</a>
+<a name="277"><span class="lineNum">     277 </span>            : </a>
+<a name="278"><span class="lineNum">     278 </span>            :         [[nodiscard]] bool hasYear() const</a>
+<a name="279"><span class="lineNum">     279 </span>            :         {</a>
+<a name="280"><span class="lineNum">     280 </span>            :             return find(key_type::YearRole) != end();</a>
+<a name="281"><span class="lineNum">     281 </span>            :         }</a>
+<a name="282"><span class="lineNum">     282 </span>            : </a>
+<a name="283"><span class="lineNum">     283 </span>            :         [[nodiscard]] int channels() const</a>
+<a name="284"><span class="lineNum">     284 </span>            :         {</a>
+<a name="285"><span class="lineNum">     285 </span>            :             return operator[](key_type::ChannelsRole).toInt();</a>
+<a name="286"><span class="lineNum">     286 </span>            :         }</a>
+<a name="287"><span class="lineNum">     287 </span>            : </a>
+<a name="288"><span class="lineNum">     288 </span>            :         [[nodiscard]] bool hasChannels() const</a>
+<a name="289"><span class="lineNum">     289 </span>            :         {</a>
+<a name="290"><span class="lineNum">     290 </span>            :             return find(key_type::ChannelsRole) != end();</a>
+<a name="291"><span class="lineNum">     291 </span>            :         }</a>
+<a name="292"><span class="lineNum">     292 </span>            : </a>
+<a name="293"><span class="lineNum">     293 </span>            :         [[nodiscard]] int bitRate() const</a>
+<a name="294"><span class="lineNum">     294 </span>            :         {</a>
+<a name="295"><span class="lineNum">     295 </span>            :             return operator[](key_type::BitRateRole).toInt();</a>
+<a name="296"><span class="lineNum">     296 </span>            :         }</a>
+<a name="297"><span class="lineNum">     297 </span>            : </a>
+<a name="298"><span class="lineNum">     298 </span>            :         [[nodiscard]] bool hasBitRate() const</a>
+<a name="299"><span class="lineNum">     299 </span>            :         {</a>
+<a name="300"><span class="lineNum">     300 </span>            :             return find(key_type::BitRateRole) != end();</a>
+<a name="301"><span class="lineNum">     301 </span>            :         }</a>
+<a name="302"><span class="lineNum">     302 </span>            : </a>
+<a name="303"><span class="lineNum">     303 </span>            :         [[nodiscard]] int sampleRate() const</a>
+<a name="304"><span class="lineNum">     304 </span>            :         {</a>
+<a name="305"><span class="lineNum">     305 </span>            :             return operator[](key_type::SampleRateRole).toInt();</a>
+<a name="306"><span class="lineNum">     306 </span>            :         }</a>
+<a name="307"><span class="lineNum">     307 </span>            : </a>
+<a name="308"><span class="lineNum">     308 </span>            :         [[nodiscard]] bool hasSampleRate() const</a>
+<a name="309"><span class="lineNum">     309 </span>            :         {</a>
+<a name="310"><span class="lineNum">     310 </span>            :             return find(key_type::SampleRateRole) != end();</a>
+<a name="311"><span class="lineNum">     311 </span>            :         }</a>
+<a name="312"><span class="lineNum">     312 </span>            : </a>
+<a name="313"><span class="lineNum">     313 </span>            : </a>
+<a name="314"><span class="lineNum">     314 </span>            :         [[nodiscard]] bool hasEmbeddedCover() const</a>
+<a name="315"><span class="lineNum">     315 </span>            :         {</a>
+<a name="316"><span class="lineNum">     316 </span>            :             return operator[](key_type::HasEmbeddedCover).toBool();</a>
+<a name="317"><span class="lineNum">     317 </span>            :         }</a>
+<a name="318"><span class="lineNum">     318 </span>            : </a>
+<a name="319"><span class="lineNum">     319 </span>            :         [[nodiscard]] QDateTime fileModificationTime() const</a>
+<a name="320"><span class="lineNum">     320 </span>            :         {</a>
+<a name="321"><span class="lineNum">     321 </span>            :             return operator[](key_type::FileModificationTime).toDateTime();</a>
+<a name="322"><span class="lineNum">     322 </span>            :         }</a>
+<a name="323"><span class="lineNum">     323 </span>            :     };</a>
+<a name="324"><span class="lineNum">     324 </span>            : </a>
+<a name="325"><span class="lineNum">     325 </span>            :     using ListTrackDataType = QList&lt;TrackDataType&gt;;</a>
+<a name="326"><span class="lineNum">     326 </span>            : </a>
+<a name="327"><span class="lineNum">     327 </span>            :     using ListRadioDataType = QList&lt;TrackDataType&gt;;</a>
+<a name="328"><span class="lineNum">     328 </span>            : </a>
+<a name="329"><span class="lineNum">     329 </span>            :     class AlbumDataType : public MusicDataType</a>
+<a name="330"><span class="lineNum">     330 </span>            :     {</a>
+<a name="331"><span class="lineNum">     331 </span>            :     public:</a>
+<a name="332"><span class="lineNum">     332 </span>            : </a>
+<a name="333"><span class="lineNum">     333 </span>            :         using MusicDataType::MusicDataType;</a>
+<a name="334"><span class="lineNum">     334 </span>            : </a>
+<a name="335"><span class="lineNum">     335 </span>            :         [[nodiscard]] QString title() const</a>
+<a name="336"><span class="lineNum">     336 </span>            :         {</a>
+<a name="337"><span class="lineNum">     337 </span>            :             return operator[](key_type::TitleRole).toString();</a>
+<a name="338"><span class="lineNum">     338 </span>            :         }</a>
+<a name="339"><span class="lineNum">     339 </span>            : </a>
+<a name="340"><span class="lineNum">     340 </span>            :         [[nodiscard]] QString artist() const</a>
+<a name="341"><span class="lineNum">     341 </span>            :         {</a>
+<a name="342"><span class="lineNum">     342 </span>            :             return operator[](key_type::ArtistRole).toString();</a>
+<a name="343"><span class="lineNum">     343 </span>            :         }</a>
+<a name="344"><span class="lineNum">     344 </span>            : </a>
+<a name="345"><span class="lineNum">     345 </span>            :         [[nodiscard]] bool isValidArtist() const</a>
+<a name="346"><span class="lineNum">     346 </span>            :         {</a>
+<a name="347"><span class="lineNum">     347 </span>            :             const auto &amp;artistData = operator[](key_type::ArtistRole);</a>
+<a name="348"><span class="lineNum">     348 </span>            :             return artistData.isValid() &amp;&amp; !artistData.toString().isEmpty();</a>
+<a name="349"><span class="lineNum">     349 </span>            :         }</a>
+<a name="350"><span class="lineNum">     350 </span>            : </a>
+<a name="351"><span class="lineNum">     351 </span>            :         [[nodiscard]] QStringList genres() const</a>
+<a name="352"><span class="lineNum">     352 </span>            :         {</a>
+<a name="353"><span class="lineNum">     353 </span>            :             return operator[](key_type::GenreRole).toStringList();</a>
+<a name="354"><span class="lineNum">     354 </span>            :         }</a>
+<a name="355"><span class="lineNum">     355 </span>            : </a>
+<a name="356"><span class="lineNum">     356 </span>            :         [[nodiscard]] QUrl albumArtURI() const</a>
+<a name="357"><span class="lineNum">     357 </span>            :         {</a>
+<a name="358"><span class="lineNum">     358 </span>            :             return operator[](key_type::ImageUrlRole).toUrl();</a>
+<a name="359"><span class="lineNum">     359 </span>            :         }</a>
+<a name="360"><span class="lineNum">     360 </span>            : </a>
+<a name="361"><span class="lineNum">     361 </span>            :         [[nodiscard]] bool isSingleDiscAlbum() const</a>
+<a name="362"><span class="lineNum">     362 </span>            :         {</a>
+<a name="363"><span class="lineNum">     363 </span>            :             return operator[](key_type::IsSingleDiscAlbumRole).toBool();</a>
+<a name="364"><span class="lineNum">     364 </span>            :         }</a>
+<a name="365"><span class="lineNum">     365 </span>            : </a>
+<a name="366"><span class="lineNum">     366 </span>            :         [[nodiscard]] bool isValid() const</a>
+<a name="367"><span class="lineNum">     367 </span>            :         {</a>
+<a name="368"><span class="lineNum">     368 </span>            :             return !isEmpty();</a>
+<a name="369"><span class="lineNum">     369 </span>            :         }</a>
+<a name="370"><span class="lineNum">     370 </span>            : </a>
+<a name="371"><span class="lineNum">     371 </span>            :     };</a>
+<a name="372"><span class="lineNum">     372 </span>            : </a>
+<a name="373"><span class="lineNum">     373 </span>            :     using ListAlbumDataType = QList&lt;AlbumDataType&gt;;</a>
+<a name="374"><span class="lineNum">     374 </span>            : </a>
+<a name="375"><span class="lineNum">     375 </span>            :     class ArtistDataType : public MusicDataType</a>
+<a name="376"><span class="lineNum">     376 </span>            :     {</a>
+<a name="377"><span class="lineNum">     377 </span>            :     public:</a>
+<a name="378"><span class="lineNum">     378 </span>            : </a>
+<a name="379"><span class="lineNum">     379 </span>            :         using MusicDataType::MusicDataType;</a>
+<a name="380"><span class="lineNum">     380 </span>            : </a>
+<a name="381"><span class="lineNum">     381 </span>            :         [[nodiscard]] QString name() const</a>
+<a name="382"><span class="lineNum">     382 </span>            :         {</a>
+<a name="383"><span class="lineNum">     383 </span>            :             return operator[](key_type::TitleRole).toString();</a>
+<a name="384"><span class="lineNum">     384 </span>            :         }</a>
+<a name="385"><span class="lineNum">     385 </span>            : </a>
+<a name="386"><span class="lineNum">     386 </span>            :         [[nodiscard]] qulonglong databaseId() const</a>
+<a name="387"><span class="lineNum">     387 </span>            :         {</a>
+<a name="388"><span class="lineNum">     388 </span>            :             return operator[](key_type::DatabaseIdRole).toULongLong();</a>
+<a name="389"><span class="lineNum">     389 </span>            :         }</a>
+<a name="390"><span class="lineNum">     390 </span>            : </a>
+<a name="391"><span class="lineNum">     391 </span>            :     };</a>
+<a name="392"><span class="lineNum">     392 </span>            : </a>
+<a name="393"><span class="lineNum">     393 </span>            :     using ListArtistDataType = QList&lt;ArtistDataType&gt;;</a>
+<a name="394"><span class="lineNum">     394 </span>            : </a>
+<a name="395"><span class="lineNum">     395 </span>            :     class GenreDataType : public MusicDataType</a>
+<a name="396"><span class="lineNum">     396 </span>            :     {</a>
+<a name="397"><span class="lineNum">     397 </span>            :     public:</a>
+<a name="398"><span class="lineNum">     398 </span>            : </a>
+<a name="399"><span class="lineNum">     399 </span>            :         using MusicDataType::MusicDataType;</a>
+<a name="400"><span class="lineNum">     400 </span>            : </a>
+<a name="401"><span class="lineNum">     401 </span>            :         [[nodiscard]] QString title() const</a>
+<a name="402"><span class="lineNum">     402 </span>            :         {</a>
+<a name="403"><span class="lineNum">     403 </span>            :             return operator[](key_type::TitleRole).toString();</a>
+<a name="404"><span class="lineNum">     404 </span>            :         }</a>
+<a name="405"><span class="lineNum">     405 </span>            : </a>
+<a name="406"><span class="lineNum">     406 </span>            :     };</a>
+<a name="407"><span class="lineNum">     407 </span>            : </a>
+<a name="408"><span class="lineNum">     408 </span>            :     using ListGenreDataType = QList&lt;GenreDataType&gt;;</a>
+<a name="409"><span class="lineNum">     409 </span>            : </a>
+<a name="410"><span class="lineNum">     410 </span>            :     using EntryData = std::tuple&lt;MusicDataType, QString, QUrl&gt;;</a>
+<a name="411"><span class="lineNum">     411 </span>            :     using EntryDataList = QList&lt;EntryData&gt;;</a>
+<a name="412"><span class="lineNum">     412 </span>            : </a>
+<a name="413"><span class="lineNum">     413 </span>            : };</a>
+<a name="414"><span class="lineNum">     414 </span>            : </a>
+<a name="415"><span class="lineNum">     415 </span>            : Q_DECLARE_METATYPE(DataTypes::MusicDataType)</a>
+<a name="416"><span class="lineNum">     416 </span>            : Q_DECLARE_METATYPE(DataTypes::TrackDataType)</a>
+<a name="417"><span class="lineNum">     417 </span>            : Q_DECLARE_METATYPE(DataTypes::AlbumDataType)</a>
+<a name="418"><span class="lineNum">     418 </span>            : Q_DECLARE_METATYPE(DataTypes::ArtistDataType)</a>
+<a name="419"><span class="lineNum">     419 </span>            : Q_DECLARE_METATYPE(DataTypes::GenreDataType)</a>
+<a name="420"><span class="lineNum">     420 </span>            : </a>
+<a name="421"><span class="lineNum">     421 </span>            : Q_DECLARE_METATYPE(DataTypes::ListTrackDataType)</a>
+<a name="422"><span class="lineNum">     422 </span>            : Q_DECLARE_METATYPE(DataTypes::ListAlbumDataType)</a>
+<a name="423"><span class="lineNum">     423 </span>            : Q_DECLARE_METATYPE(DataTypes::ListArtistDataType)</a>
+<a name="424"><span class="lineNum">     424 </span>            : Q_DECLARE_METATYPE(DataTypes::ListGenreDataType)</a>
+<a name="425"><span class="lineNum">     425 </span>            : </a>
+<a name="426"><span class="lineNum">     426 </span><span class="lineCov">          2 : Q_DECLARE_METATYPE(DataTypes::EntryData)</span></a>
+<a name="427"><span class="lineNum">     427 </span><span class="lineCov">          2 : Q_DECLARE_METATYPE(DataTypes::EntryDataList)</span></a>
+<a name="428"><span class="lineNum">     428 </span>            : </a>
+<a name="429"><span class="lineNum">     429 </span>            : #endif // DATATYPES_H</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.15</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
