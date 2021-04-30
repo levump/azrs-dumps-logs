@@ -1,0 +1,26 @@
+# kdesrc-build running: 'make' 'install/fast'
+# from directory: /home/vumpus/kde/build/multimedia/elisa
+Install the project...
+-- Install configuration: "RelWithDebInfo"
+-- Installing: /home/vumpus/kde/usr/share/applications/org.kde.elisa.desktop
+-- Installing: /home/vumpus/kde/usr/share/metainfo/org.kde.elisa.appdata.xml
+-- Installing: /home/vumpus/kde/usr/share/qlogging-categories5/elisa.categories
+-- Installing: /home/vumpus/kde/usr/lib/elisa/libelisaLib.so.0.1
+-- Up-to-date: /home/vumpus/kde/usr/lib/elisa/libelisaLib.so.0
+-- Set runtime path of "/home/vumpus/kde/usr/lib/elisa/libelisaLib.so.0.1" to "/home/vumpus/kde/usr/lib"
+-- Installing: /home/vumpus/kde/usr/lib/qml/org/kde/elisa/libelisaqmlplugin.so
+-- Set runtime path of "/home/vumpus/kde/usr/lib/qml/org/kde/elisa/libelisaqmlplugin.so" to "/home/vumpus/kde/usr/lib/elisa:/home/vumpus/kde/usr/lib"
+-- Installing: /home/vumpus/kde/usr/lib/qml/org/kde/elisa/qmldir
+-- Installing: /home/vumpus/kde/usr/lib/qml/org/kde/elisa/plugins.qmltypes
+-- Installing: /home/vumpus/kde/usr/bin/elisa
+-- Set runtime path of "/home/vumpus/kde/usr/bin/elisa" to "/home/vumpus/kde/usr/lib/elisa:/home/vumpus/kde/usr/lib"
+-- Installing: /home/vumpus/kde/usr/share/icons/hicolor/scalable/apps/elisa.svg
+-- Installing: /home/vumpus/kde/usr/share/icons/hicolor/128x128/apps/elisa.png
+-- Installing: /home/vumpus/kde/usr/share/icons/hicolor/64x64/apps/elisa.png
+-- Installing: /home/vumpus/kde/usr/share/icons/hicolor/48x48/apps/elisa.png
+-- Installing: /home/vumpus/kde/usr/share/icons/hicolor/32x32/apps/elisa.png
+-- Installing: /home/vumpus/kde/usr/share/icons/hicolor/22x22/apps/elisa.png
+-- Installing: /home/vumpus/kde/usr/share/icons/hicolor/16x16/apps/elisa.png
+-- Installing: /home/vumpus/kde/usr/share/doc/HTML/en/elisa/index.cache.bz2
+-- Installing: /home/vumpus/kde/usr/share/doc/HTML/en/elisa/index.docbook
+-- Installing: /home/vumpus/kde/usr/share/doc/HTML/en/elisa/Screenshot_20180912_232200.png

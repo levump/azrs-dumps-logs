@@ -1,0 +1,13 @@
+Building elisa from kdemultimedia (1/1)
+	Cloning elisa
+	Source update complete for elisa: 331 files affected.
+	Preparing build system for elisa.
+	Running cmake targeting Unix Makefiles...
+	Note: -- 5 -- compile warnings
+<<<  PACKAGES SUCCESSFULLY BUILT  >>>
+elisa
+ 
+Removing 1 out of 1 old log directories...
+
+:-)
+Your logs are saved in file:///home/vumpus/kde/src/log/2021-04-28-01

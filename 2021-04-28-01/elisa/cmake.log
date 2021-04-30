@@ -1,0 +1,91 @@
+# kdesrc-build running: 'cmake' '/home/vumpus/kde/src/multimedia/elisa' '-G' 'Unix Makefiles' '-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=ON' '-DCMAKE_BUILD_TYPE=RelWithDebInfo' '-DCMAKE_CXX_FLAGS:STRING=-pipe' '-DCMAKE_INSTALL_PREFIX=/home/vumpus/kde/usr'
+# from directory: /home/vumpus/kde/build/multimedia/elisa
+-- The CXX compiler identification is GNU 10.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+Installing in /home/vumpus/kde/usr. Run /home/vumpus/kde/build/multimedia/elisa/prefix.sh to set the environment for elisa.
+-- Looking for __GLIBC__
+-- Looking for __GLIBC__ - found
+-- Performing Test _OFFT_IS_64BIT
+-- Performing Test _OFFT_IS_64BIT - Success
+-- Performing Test HAVE_DATE_TIME
+-- Performing Test HAVE_DATE_TIME - Success
+-- Found Gettext: /usr/bin/msgmerge (found version "0.21") 
+Installing in /home/vumpus/kde/usr. Run /home/vumpus/kde/build/multimedia/elisa/prefix.sh to set the environment for elisa.
+Installing in /home/vumpus/kde/usr. Run /home/vumpus/kde/build/multimedia/elisa/prefix.sh to set the environment for elisa.
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.7.3") 
+-- Checking for module 'libvlc'
+--   Found libvlc, version 3.0.12
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- The following RUNTIME packages have been found:
+
+ * Qt5QuickWidgets (required version >= 5.15.0), Qt5 Quick Widgets is needed at runtime to provide the interface.
+
+-- The following OPTIONAL packages have been found:
+
+ * KF5DocTools (required version >= 5.77.0), Create documentation from DocBook library.
+ * KF5Crash (required version >= 5.77.0), Graceful handling of application crashes.
+ * KF5DBusAddons (required version >= 5.77.0), Convenience classes for D-Bus.
+ * KF5Service (required version >= 5.81.0)
+ * KF5Completion (required version >= 5.81.0)
+ * KF5ItemViews (required version >= 5.81.0)
+ * KF5JobWidgets (required version >= 5.81.0)
+ * KF5Solid (required version >= 5.81.0)
+ * KF5Auth (required version >= 5.81.0)
+ * KF5Codecs (required version >= 5.81.0)
+ * KF5WidgetsAddons (required version >= 5.81.0)
+ * KF5WindowSystem (required version >= 5.81.0)
+ * Qt5DBus (required version >= 5.14.0), Qt5 DBus is needed to provide MPris2 interface to allow remote control by the desktop workspace.
+ * PkgConfig
+
+-- The following RECOMMENDED packages have been found:
+
+ * KF5Declarative (required version >= 5.77.0), Integration of QML and KDE work spaces.
+ * KF5Baloo (required version >= 5.77.0), Baloo provides file searching and indexing.
+ * KF5FileMetaData (required version >= 5.77.0), Provides a simple library for extracting metadata.
+ * KF5Package (required version >= 5.77.0), KF5 package management library needed to get the configuration dialogs.
+ * KF5ConfigWidgets (required version >= 5.81.0), Widgets for configuration dialogs.
+ * KF5XmlGui (required version >= 5.81.0), Framework for managing menu and toolbar actions.
+ * KF5KIO (required version >= 5.77.0), File management libraries used for file browsing.
+ * LIBVLC, libvlc allows to play music in Elisa (otherwise it will use QtMultimedia), <https://www.videolan.org/vlc/libvlc.html>
+
+-- The following REQUIRED packages have been found:
+
+ * Qt5Qml
+ * Qt5QmlModels (required version >= 5.15.2)
+ * Qt5Test
+ * Qt5Sql
+ * Qt5Multimedia
+ * Qt5Svg
+ * Qt5Gui
+ * Qt5QuickTest
+ * Qt5 (required version >= 5.15.0)
+ * Qt5QuickControls2 (required version >= 5.15.0), Qt5 Quick Controls version 2 is needed at runtime to provide the interface.
+ * KF5Kirigami2 (required version >= 5.77.0), KF5 Kirigami 2 is needed to provide the mobile UI components.
+ * Gettext
+ * KF5I18n (required version >= 5.77.0), KF5 text internationalization library.
+ * Qt5Quick (required version >= 5.14.0)
+ * KF5IconThemes (required version >= 5.77.0), Support for icon themes.
+ * ECM (required version >= 1.6.0)
+ * KF5CoreAddons (required version >= 5.81.0), Qt addon library with a collection of non-GUI utilities.
+ * Qt5Core (required version >= 5.14.0)
+ * KF5Config (required version >= 5.81.0), Persistent platform-independent application settings.
+ * Qt5Widgets (required version >= 5.14.0)
+ * Qt5Network (required version >= 5.14.0)
+ * Qt5Concurrent (required version >= 5.14.0)
+
+-- The following OPTIONAL packages have not been found:
+
+ * UPNPQT, UPNP layer build with Qt 5. UPnP support is currently broken. You should probably avoid this dependency., <https://gitlab.com/homeautomationqt/upnp-player-qt>
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vumpus/kde/build/multimedia/elisa
